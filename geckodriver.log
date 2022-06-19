@@ -1,0 +1,160 @@
+1643217229622	geckodriver	INFO	Listening on 127.0.0.1:56272
+1643217232669	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "56273" "-no-remote" "-profile" "C:\\Users\\grzeg\\AppData\\Local\\Temp\\rust_mozprofile6m4ZvW"
+1643217233164	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\grzeg\\AppData\\Local\\Temp\\rust_mozprofile6m4ZvW\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:56273/devtools/browser/76ebf4ea-4133-4256-9bd1-25f3f73cbda7
+1643217235194	Marionette	INFO	Listening on port 56278
+1643217235325	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bdm.pl/assets/migo/fixedHeaderTable/tableHeadFixer.js, line 230: unreachable code after return statement
+JavaScript error: resource://devtools/server/actors/network-monitor/network-event-actor.js, line 110: Error: Got a request https://www.bdm.pl/assets/css/628ca12c27fc.css without a browsingContextID set
+JavaScript error: resource://devtools/server/actors/network-monitor/network-event-actor.js, line 110: Error: Got a request https://www.bdm.pl/templates/bdm/css/style.css without a browsingContextID set
+JavaScript error: resource://devtools/server/actors/network-monitor/network-event-actor.js, line 110: Error: Got a request https://www.bdm.pl/assets/migo/slicknav/slicknav.css without a browsingContextID set
+JavaScript error: resource://devtools/server/actors/network-monitor/network-event-actor.js, line 110: Error: Got a request https://www.bdm.pl/assets/migo/slick/1.5.9/slick.css without a browsingContextID set
+JavaScript error: resource://devtools/server/actors/network-monitor/network-event-actor.js, line 110: Error: Got a request https://www.bdm.pl/assets/migo/tooltip/jquery-ui.min.css without a browsingContextID set
+1643217350796	Marionette	INFO	Stopped listening on port 56278
+3217297515	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "56364" "-no-remote" "-profile" "C:\\Users\\grzeg\\AppData\\Local\\Temp\\rust_mozprofilepPW6uB"
+1643217297762	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\grzeg\\AppData\\Local\\Temp\\rust_mozprofilepPW6uB\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:56364/devtools/browser/9771b4a0-cf0d-4c3c-afc4-c61724af1676
+1643217299520	Marionette	INFO	Listening on port 56371
+1643217299568	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bdm.pl/assets/migo/fixedHeaderTable/tableHeadFixer.js, line 230: unreachable code after return statement
+1643217305268	Marionette	INFO	Stopped listening on port 56371
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+[Parent 19416, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1643217376187	geckodriver	INFO	Listening on 127.0.0.1:56452
+1643217379266	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "56453" "-no-remote" "-profile" "C:\\Users\\grzeg\\AppData\\Local\\Temp\\rust_mozprofilektzUep"
+1643217379602	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\grzeg\\AppData\\Local\\Temp\\rust_mozprofilektzUep\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:56453/devtools/browser/040dd108-a386-4e4d-93bc-66880949813d
+1643217381441	Marionette	INFO	Listening on port 56458
+1643217381909	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bdm.pl/assets/migo/fixedHeaderTable/tableHeadFixer.js, line 230: unreachable code after return statement
+1643217394004	Marionette	INFO	Stopped listening on port 56458
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+[Parent 24792, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+1643219399079	geckodriver	INFO	Listening on 127.0.0.1:58076
+1643219402147	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "58077" "-no-remote" "-profile" "C:\\Users\\grzeg\\AppData\\Local\\Temp\\rust_mozprofileA5LsRM"
+1643219402409	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\grzeg\\AppData\\Local\\Temp\\rust_mozprofileA5LsRM\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:58077/devtools/browser/80fc0bb5-8e62-4d9f-b73d-dae6b78c81a5
+1643219404178	Marionette	INFO	Listening on port 58087
+1643219404197	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bdm.pl/assets/migo/fixedHeaderTable/tableHeadFixer.js, line 230: unreachable code after return statement
+1643219485294	Marionette	INFO	Stopped listening on port 58087
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+[Parent 23600, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1643219587620	geckodriver	INFO	Listening on 127.0.0.1:58310
+1643219590689	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "58311" "-no-remote" "-profile" "C:\\Users\\grzeg\\AppData\\Local\\Temp\\rust_mozprofilemJTfyd"
+1643219590967	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\grzeg\\AppData\\Local\\Temp\\rust_mozprofilemJTfyd\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:58311/devtools/browser/93c19dd0-9083-40b9-afc5-382c274227ea
+1643219592652	Marionette	INFO	Listening on port 58318
+1643219592738	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bdm.pl/assets/migo/fixedHeaderTable/tableHeadFixer.js, line 230: unreachable code after return statement
+1643222625951	Marionette	INFO	Stopped listening on port 58318
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+ozprofilecMl9xI"
+1643219623654	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\grzeg\\AppData\\Local\\Temp\\rust_mozprofilecMl9xI\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:58399/devtools/browser/98307a39-73f3-4cdc-b9e8-08814d24e832
+1643219626326	Marionette	INFO	Listening on port 58417
+1643219626461	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bdm.pl/assets/migo/fixedHeaderTable/tableHeadFixer.js, line 230: unreachable code after return statement
+JavaScript error: https://e.bdm.pl/js/cookieswarning.js, line 51: TypeError: cookiediv is null
+JavaScript error: https://e.bdm.pl/js/jquery-ui.js, line 2: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/?_ga=2.5434227.1125369550.1643219628-1640838655.1643219628, line 447: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/js/colorbox.js, line 2: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/?_ga=2.5434227.1125369550.1643219628-1640838655.1643219628, line 464: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/js/mediaelement-and-player.js, line 3: TypeError: a is undefined
+JavaScript error: https://e.bdm.pl/?_ga=2.5434227.1125369550.1643219628-1640838655.1643219628, line 478: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/?_ga=2.5434227.1125369550.1643219628-1640838655.1643219628, line 498: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/js/tablesorter.js, line 1031: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/?_ga=2.5434227.1125369550.1643219628-1640838655.1643219628, line 509: ReferenceError: jQuery is not defined
+1643222626737	Marionette	INFO	Stopped listening on port 58417
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+[Parent 15856, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+222626688	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\grzeg\\AppData\\Local\\Temp\\rust_mozprofiles8oobp\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:59924/devtools/browser/1ba0031c-e4f9-40ef-b4bf-beeaf5249de8
+1643222628824	Marionette	INFO	Listening on port 59931
+1643222629079	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bdm.pl/assets/migo/fixedHeaderTable/tableHeadFixer.js, line 230: unreachable code after return statement
+JavaScript error: https://e.bdm.pl/js/cookieswarning.js, line 51: TypeError: cookiediv is null
+JavaScript error: https://e.bdm.pl/js/jquery-ui.js, line 2: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/?_ga=2.257431554.803849083.1643222631-1667349958.1643222631, line 447: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/js/colorbox.js, line 2: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/?_ga=2.257431554.803849083.1643222631-1667349958.1643222631, line 464: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/js/mediaelement-and-player.js, line 3: TypeError: a is undefined
+JavaScript error: https://e.bdm.pl/?_ga=2.257431554.803849083.1643222631-1667349958.1643222631, line 478: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/?_ga=2.257431554.803849083.1643222631-1667349958.1643222631, line 498: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/js/tablesorter.js, line 1031: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/?_ga=2.257431554.803849083.1643222631-1667349958.1643222631, line 509: ReferenceError: jQuery is not defined
+1643222688381	Marionette	INFO	Stopped listening on port 59931643222689736	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "60059" "-no-remote" "-profile" "C:\\Users\\grzeg\\AppData\\Local\\Temp\\rust_mozprofilemwFs2D"
+1643222690046	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\grzeg\\AppData\\Local\\Temp\\rust_mozprofilemwFs2D\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:60059/devtools/browser/5bc46f07-f1c6-4e90-bd20-57b7859284f9
+1643222692023	Marionette	INFO	Listening on port 60068
+1643222692397	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bdm.pl/assets/migo/fixedHeaderTable/tableHeadFixer.js, line 230: unreachable code after return statement
+JavaScript error: https://e.bdm.pl/js/cookieswarning.js, line 51: TypeError: cookiediv is null
+JavaScript error: https://e.bdm.pl/js/jquery-ui.js, line 2: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/?_ga=2.102409921.1585822563.1643222694-479301007.1643222694, line 447: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/js/colorbox.js, line 2: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/?_ga=2.102409921.1585822563.1643222694-479301007.1643222694, line 464: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/js/mediaelement-and-player.js, line 3: TypeError: a is undefined
+JavaScript error: https://e.bdm.pl/?_ga=2.102409921.1585822563.1643222694-479301007.1643222694, line 478: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/?_ga=2.102409921.1585822563.1643222694-479301007.1643222694, line 498: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/js/tablesorter.js, line 1031: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/?_ga=2.102409921.1585822563.1643222694-479301007.1643222694, line 509: ReferenceError: jQuery is not defined
+1643222993638	Marionette	INFO	Stopped listening on port 60068
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+ozprofileAcEfhN"
+1643222768007	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\grzeg\\AppData\\Local\\Temp\\rust_mozprofileAcEfhN\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:60183/devtools/browser/a3ca729c-05d4-4a45-9043-e7e8dd4c59b0
+1643222769784	Marionette	INFO	Listening on port 60189
+1643222769902	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bdm.pl/assets/migo/fixedHeaderTable/tableHeadFixer.js, line 230: unreachable code after return statement
+JavaScript error: https://e.bdm.pl/js/cookieswarning.js, line 51: TypeError: cookiediv is null
+JavaScript error: https://e.bdm.pl/js/jquery-ui.js, line 2: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/?_ga=2.213979413.323339336.1643222771-873915278.1643222771, line 447: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/js/colorbox.js, line 2: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/?_ga=2.213979413.323339336.1643222771-873915278.1643222771, line 464: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/js/mediaelement-and-player.js, line 3: TypeError: a is undefined
+JavaScript error: https://e.bdm.pl/?_ga=2.213979413.323339336.1643222771-873915278.1643222771, line 478: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/?_ga=2.213979413.323339336.1643222771-873915278.1643222771, line 498: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/js/tablesorter.js, line 1031: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/?_ga=2.213979413.323339336.1643222771-873915278.1643222771, line 509: ReferenceError: jQuery is not defined
+JavaScript error: resource:///modules/UrlbarInput.jsm, line 2953: TypeError: event.target.closest is not a function
+JavaScript error: resource:///modules/UrlbarInput.jsm, line 2953: TypeError: event.target.closest is not a function
+JavaScript error: resource:///modules/UrlbarInput.jsm, line 2953: TypeError: event.target.closest is not a function
+1643222994648	Marionette	INFO	Stopped listening on port 60181643222995520	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "60794" "-no-remote" "-profile" "C:\\Users\\grzeg\\AppData\\Local\\Temp\\rust_mozprofileTJf84p"
+1643222995793	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\grzeg\\AppData\\Local\\Temp\\rust_mozprofileTJf84p\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:60794/devtools/browser/aba34149-7406-4767-8447-e7a5a1e36b11
+1643222997658	Marionette	INFO	Listening on port 60802
+1643222997681	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.bdm.pl/assets/migo/fixedHeaderTable/tableHeadFixer.js, line 230: unreachable code after return statement
+JavaScript error: https://e.bdm.pl/js/cookieswarning.js, line 51: TypeError: cookiediv is null
+JavaScript error: https://e.bdm.pl/js/jquery-ui.js, line 2: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/?_ga=2.192422570.1488865407.1643222999-27889446.1643222999, line 447: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/js/colorbox.js, line 2: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/?_ga=2.192422570.1488865407.1643222999-27889446.1643222999, line 464: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/js/mediaelement-and-player.js, line 3: TypeError: a is undefined
+JavaScript error: https://e.bdm.pl/?_ga=2.192422570.1488865407.1643222999-27889446.1643222999, line 478: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/?_ga=2.192422570.1488865407.1643222999-27889446.1643222999, line 498: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/js/tablesorter.js, line 1031: ReferenceError: jQuery is not defined
+JavaScript error: https://e.bdm.pl/?_ga=2.192422570.1488865407.1643222999-27889446.1643222999, line 509: ReferenceError: jQuery is not defined
