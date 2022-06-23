@@ -12,7 +12,7 @@ import pandas as pd
 
 
 class BDM():
-    
+
     def __init__(self, login, password):
         self._current_Page = 1
         self._driver = webdriver.Firefox()
@@ -32,26 +32,26 @@ class BDM():
     def page_up(self):
         try:
             self._driver.find_element(By.XPATH,
-                                "//div[@class=' x-icon-btn x-nodrag epm-paging-toolbar-next epm-paging-toolbar-button x-component']").click()
+                                      "//div[@class=' x-icon-btn x-nodrag epm-paging-toolbar-next epm-paging-toolbar-button x-component']").click()
         except selenium.common.exceptions.NoSuchElementException:
             self._driver.find_element(By.XPATH,
-                                "//div[@class=' x-icon-btn x-nodrag epm-paging-toolbar-button x-component  epm-paging-toolbar-next']").click()
+                                      "//div[@class=' x-icon-btn x-nodrag epm-paging-toolbar-button x-component  epm-paging-toolbar-next']").click()
         self._current_Page += 1
-    
+
     def page_down(self):
         try:
             self._driver.find_element(By.XPATH,
-                                "//div[@class=' x-icon-btn x-nodrag epm-paging-toolbar-button x-component epm-paging-toolbar-prev']").click()
+                                      "//div[@class=' x-icon-btn x-nodrag epm-paging-toolbar-button x-component epm-paging-toolbar-prev']").click()
         except selenium.common.exceptions.NoSuchElementException:
             self._driver.find_element(By.XPATH,
-                                "//div[@class=' x-icon-btn x-nodrag epm-paging-toolbar-button x-component  epm-paging-toolbar-prev']").click()
+                                      "//div[@class=' x-icon-btn x-nodrag epm-paging-toolbar-button x-component  epm-paging-toolbar-prev']").click()
         self._current_Page -= 1
 
-    def pulpit_1(self,):
-        self._driver.find_element(By.PARTIAL_LINK_TEXT,"Pulpit 1").click()
-    
-    def pulpit_2(self,):
-        self._driver.find_element(By.PARTIAL_LINK_TEXT,"Pulpit 2").click()
+    def pulpit_1(self, ):
+        self._driver.find_element(By.PARTIAL_LINK_TEXT, "Pulpit 1").click()
+
+    def pulpit_2(self, ):
+        self._driver.find_element(By.PARTIAL_LINK_TEXT, "Pulpit 2").click()
 
     def download_table_info(self, bdm_Dict):
 
@@ -75,17 +75,20 @@ class BDM():
         tableWalletNumber = int(re.search(r'\d+', tableWalletNumber).group())
         self._df = _download_function(bdm_Dict)
 
-
     def insert_row(self,
                    df_price=pd.DataFrame({"Date": [],
                                           "Wycena": []}),
                    df=0):
 
         # df_price = df_price.drop('ULTGAMES', 1)
-        current_time = self._driver.find_element(By.XPATH, "//div[@id='epmNtw-quotesTime']").text.strip("Czas notowań:")[0:10]
+        current_time = self._driver.find_element(By.XPATH, "//div[@id='epmNtw-quotesTime']").text.strip(
+            "Czas notowań:")[0:10]
         pulpit_2()
-        WebDriverWait(self._driver, 20).until(EC.presence_of_element_located((By.XPATH,"//div[@class='x-grid3-cell-inner x-grid3-col-WYCENA_CALKOWITA']")))
-        wycena = self._driver.find_element(By.XPATH, "//div[@class='x-grid3-cell-inner x-grid3-col-WYCENA_CALKOWITA']").text.replace("PLN", '')
+        WebDriverWait(self._driver, 20).until(EC.presence_of_element_located(
+            (By.XPATH, "//div[@class='x-grid3-cell-inner x-grid3-col-WYCENA_CALKOWITA']")))
+        wycena = self._driver.find_element(By.XPATH,
+                                           "//div[@class='x-grid3-cell-inner x-grid3-col-WYCENA_CALKOWITA']").text.replace(
+            "PLN", '')
         pulpit_1()
         index = len(df_price) - 1
         if df_price["Date"].empty == True:
@@ -93,7 +96,7 @@ class BDM():
                          "Wycena": wycena}
             for (stock_name, price) in zip(df["stock_names"], df['valuation']):
                 data_info[stock_name] = price
-            df_price= df_price.append(data_info, True)
+            df_price = df_price.append(data_info, True)
         elif df_price["Date"].iloc[index] == current_time:
             data_info = {"Date": current_time,
                          "Wycena": wycena}
@@ -102,7 +105,7 @@ class BDM():
                     df_price[keys1] = ''
             for (stock_name, price) in zip(df["stock_names"], df['valuation']):
                 data_info[stock_name] = price
-                df_price.at[index,stock_name] = data_info[stock_name]
+                df_price.at[index, stock_name] = data_info[stock_name]
             df_price.at[index, "Date"] = current_time
             df_price.at[index, "Wycena"] = wycena
         else:
@@ -110,8 +113,9 @@ class BDM():
                          "Wycena": wycena}
             for (stock_name, price) in zip(df["stock_names"], df['valuation']):
                 data_info[stock_name] = price
-            df_price= df_price.append(data_info, True)
+            df_price = df_price.append(data_info, True)
         self._df_price = df_price.drop('', 1)
+
 
 bdm_Dict = {'stock_names': "//div[@class='x-grid3-cell-inner x-grid3-col-SKROT']",
             'number_to_shares': "//div[@class='x-grid3-cell-inner x-grid3-col-ILOSC_DO_SPRZEDAZY']",
@@ -119,11 +123,12 @@ bdm_Dict = {'stock_names': "//div[@class='x-grid3-cell-inner x-grid3-col-SKROT']
             'current_price': "//div[@class='x-grid3-cell-inner x-grid3-col-KURS_BIEZACY']",
             'average_purchase_rate': "//div[@class='x-grid3-cell-inner x-grid3-col-SREDNI_KURS_NABYCIA']",
             'profit/loss': "//div[@class='x-grid3-cell-inner x-grid3-col-ZYSK_STRATA_PROCENTOWA']",
-            'valuation': "//div[@class='x-grid3-cell-inner x-grid3-col-WYCENA_W_WALUCIE_NOTOWANIA']",}
+            'valuation': "//div[@class='x-grid3-cell-inner x-grid3-col-WYCENA_W_WALUCIE_NOTOWANIA']", }
 
 
 class stooq():
     NotImplementedError
+
 
 def _check_file():
     if os.path.exists("test.csv"):
