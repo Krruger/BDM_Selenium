@@ -129,12 +129,12 @@ class BDM():
         x, auto, value = nowe_zlecenie.get_attribute('id').split("-")
         value = int(value)
 
-        self._driver.find_element(By.XPATH, f"//input[@id='x-auto-'{value+25}'']").click()
+        self._driver.find_element(By.XPATH, f"//input[@id='x-auto-{value+25}']").click()
         self._driver.find_element(By.XPATH, f"//input[@id='x-auto-{value + 34}-input']").send_keys(f'{nazwa_Tickera}')
-        WebDriverWait(driver, 20).until(EC.presence_of_element_located(
+        WebDriverWait(self._driver, 20).until(EC.presence_of_element_located(
             (By.XPATH, f"//div[@class='x-combo-list-item  x-view-highlightrow x-combo-selected']")))
         self._driver.find_element(By.XPATH,
-                            f"//div[contains(@class,'x-combo-list-item x-view-highlightrow x-combo-selected')][contains(text(), f'{nazwa_Tickera}')]").click()
+                            f"//div[contains(@class,'x-combo-list-item x-view-highlightrow x-combo-selected')][contains(text(), '{nazwa_Tickera}')]").click()
         time.sleep(4)
         self._driver.find_element(By.XPATH, f"//input[@id='x-auto-{value + 52}-input']").clear()
         self._driver.find_element(By.XPATH, f"//input[@id='x-auto-{value + 52}-input']").send_keys(f'{int(kwota/cena_Akcji)}')
@@ -143,23 +143,24 @@ class BDM():
         self._driver.find_element(By.XPATH, f"//input[@id='x-auto-{value + 54}-input']").send_keys(f'{cena_Akcji}')
 
         self._driver.find_element(By.XPATH, "//*[text()='Wyślij']").click()
+        time.sleep(2)
         try:
-            self._driver.find_element(By.XPATH, "//*[text()='Tak']").click()
+            while WebDriverWait(self._driver, 2).until(EC.presence_of_element_located((By.XPATH, "//*[text()='Tak']"))):
+                self._driver.find_element(By.XPATH, "//*[text()='Tak']").click()
         except:
             pass
-        self._driver.find_element(By.XPATH, "//*[text()='Tak']").click()
 
     def zlecenie_sprzedaży(self, nazwa_Tickera, cena_Akcji, liczba_akcji):
         nowe_zlecenie = driver.find_element(By.XPATH, "//div[@class='epm-gadget-body x-component']")
         x, auto, value = nowe_zlecenie.get_attribute('id').split("-")
         value = int(value)
 
-        self._driver.find_element(By.XPATH, f"//input[@id='x-auto-'{value+27}'']").click()
+        self._driver.find_element(By.XPATH, f"//input[@id='x-auto-{value+27}']").click()
         self._driver.find_element(By.XPATH, f"//input[@id='x-auto-{value + 34}-input']").send_keys(f'{nazwa_Tickera}')
-        WebDriverWait(driver, 20).until(EC.presence_of_element_located(
+        WebDriverWait(self._driver, 20).until(EC.presence_of_element_located(
             (By.XPATH, f"//div[@class='x-combo-list-item  x-view-highlightrow x-combo-selected']")))
         self._driver.find_element(By.XPATH,
-                            f"//div[contains(@class,'x-combo-list-item x-view-highlightrow x-combo-selected')][contains(text(), f'{nazwa_Tickera}')]").click()
+                            f"//div[contains(@class,'x-combo-list-item x-view-highlightrow x-combo-selected')][contains(text(), '{nazwa_Tickera}')]").click()
         time.sleep(4)
         self._driver.find_element(By.XPATH, f"//input[@id='x-auto-{value + 52}-input']").clear()
         self._driver.find_element(By.XPATH, f"//input[@id='x-auto-{value + 52}-input']").send_keys(f'{liczba_akcji}')
@@ -169,10 +170,10 @@ class BDM():
 
         self._driver.find_element(By.XPATH, "//*[text()='Wyślij']").click()
         try:
-            self._driver.find_element(By.XPATH, "//*[text()='Tak']").click()
+            while WebDriverWait(self._driver, 2).until(EC.presence_of_element_located((By.XPATH, "//*[text()='Tak']"))):
+                self._driver.find_element(By.XPATH, "//*[text()='Tak']").click()
         except:
             pass
-        self._driver.find_element(By.XPATH, "//*[text()='Tak']").click()
 
     def anuluj_zlecenie(self,walor):
         for x in self._driver.find_elements(By.XPATH,
