@@ -53,7 +53,15 @@ class BDM():
     def pulpit_2(self, ):
         self._driver.find_element(By.PARTIAL_LINK_TEXT, "Pulpit 2").click()
 
-    def download_table_info(self, bdm_Dict):
+    def download_table_info(self):
+
+        bdm_Dict = {'stock_names': "//div[@class='x-grid3-cell-inner x-grid3-col-SKROT']",
+                    'number_to_shares': "//div[@class='x-grid3-cell-inner x-grid3-col-ILOSC_DO_SPRZEDAZY']",
+                    'blocked under an order': "//div[@class='x-grid3-cell-inner x-grid3-col-BLOKOWANE_POD_ZLECENIA']",
+                    'current_price': "//div[@class='x-grid3-cell-inner x-grid3-col-KURS_BIEZACY']",
+                    'average_purchase_rate': "//div[@class='x-grid3-cell-inner x-grid3-col-SREDNI_KURS_NABYCIA']",
+                    'profit/loss': "//div[@class='x-grid3-cell-inner x-grid3-col-ZYSK_STRATA_PROCENTOWA']",
+                    'valuation': "//div[@class='x-grid3-cell-inner x-grid3-col-WYCENA_W_WALUCIE_NOTOWANIA']", }
 
         def _download_function():
             data = {}
@@ -116,6 +124,66 @@ class BDM():
             df_price = df_price.append(data_info, True)
         self._df_price = df_price.drop('', 1)
 
+    def zlecenie_kupna(self, nazwa_Tickera, cena_Akcji, kwota):
+        nowe_zlecenie = driver.find_element(By.XPATH, "//div[@class='epm-gadget-body x-component']")
+        x, auto, value = nowe_zlecenie.get_attribute('id').split("-")
+        value = int(value)
+
+        self._driver.find_element(By.XPATH, f"//input[@id='x-auto-'{value+25}'']").click()
+        self._driver.find_element(By.XPATH, f"//input[@id='x-auto-{value + 34}-input']").send_keys(f'{nazwa_Tickera}')
+        WebDriverWait(driver, 20).until(EC.presence_of_element_located(
+            (By.XPATH, f"//div[@class='x-combo-list-item  x-view-highlightrow x-combo-selected']")))
+        self._driver.find_element(By.XPATH,
+                            f"//div[contains(@class,'x-combo-list-item x-view-highlightrow x-combo-selected')][contains(text(), f'{nazwa_Tickera}')]").click()
+        time.sleep(4)
+        self._driver.find_element(By.XPATH, f"//input[@id='x-auto-{value + 52}-input']").clear()
+        self._driver.find_element(By.XPATH, f"//input[@id='x-auto-{value + 52}-input']").send_keys(f'{int(kwota/cena_Akcji)}')
+        self._driver.find_element(By.XPATH, f"//input[@id='x-auto-{value + 54}-input']").clear()
+        time.sleep(0.5)
+        self._driver.find_element(By.XPATH, f"//input[@id='x-auto-{value + 54}-input']").send_keys(f'{cena_Akcji}')
+
+        self._driver.find_element(By.XPATH, "//*[text()='Wyślij']").click()
+        try:
+            self._driver.find_element(By.XPATH, "//*[text()='Tak']").click()
+        except:
+            pass
+        self._driver.find_element(By.XPATH, "//*[text()='Tak']").click()
+
+    def zlecenie_sprzedaży(self, nazwa_Tickera, cena_Akcji, liczba_akcji):
+        nowe_zlecenie = driver.find_element(By.XPATH, "//div[@class='epm-gadget-body x-component']")
+        x, auto, value = nowe_zlecenie.get_attribute('id').split("-")
+        value = int(value)
+
+        self._driver.find_element(By.XPATH, f"//input[@id='x-auto-'{value+27}'']").click()
+        self._driver.find_element(By.XPATH, f"//input[@id='x-auto-{value + 34}-input']").send_keys(f'{nazwa_Tickera}')
+        WebDriverWait(driver, 20).until(EC.presence_of_element_located(
+            (By.XPATH, f"//div[@class='x-combo-list-item  x-view-highlightrow x-combo-selected']")))
+        self._driver.find_element(By.XPATH,
+                            f"//div[contains(@class,'x-combo-list-item x-view-highlightrow x-combo-selected')][contains(text(), f'{nazwa_Tickera}')]").click()
+        time.sleep(4)
+        self._driver.find_element(By.XPATH, f"//input[@id='x-auto-{value + 52}-input']").clear()
+        self._driver.find_element(By.XPATH, f"//input[@id='x-auto-{value + 52}-input']").send_keys(f'{liczba_akcji}')
+        self._driver.find_element(By.XPATH, f"//input[@id='x-auto-{value + 54}-input']").clear()
+        time.sleep(0.5)
+        self._driver.find_element(By.XPATH, f"//input[@id='x-auto-{value + 54}-input']").send_keys(f'{cena_Akcji}')
+
+        self._driver.find_element(By.XPATH, "//*[text()='Wyślij']").click()
+        try:
+            self._driver.find_element(By.XPATH, "//*[text()='Tak']").click()
+        except:
+            pass
+        self._driver.find_element(By.XPATH, "//*[text()='Tak']").click()
+
+    def anuluj_zlecenie(self,walor):
+        for x in self._driver.find_elements(By.XPATH,
+                                      '//div[@class="x-tab-panel-body x-tab-panel-body-top epm-tabPanel-body"]'):
+            if 'ID zlecenia' in x.text:
+                break
+        try:
+            x.find_element(By.XPATH, f'//*[text()="{walor}"]').click()
+        except selenium.common.exceptions.NoSuchElementException:
+            print(f"No such '{walor}' available to sell.")
+        x.find_element(By.XPATH, f'//*[text()="Anuluj"]').click()
 
 bdm_Dict = {'stock_names': "//div[@class='x-grid3-cell-inner x-grid3-col-SKROT']",
             'number_to_shares': "//div[@class='x-grid3-cell-inner x-grid3-col-ILOSC_DO_SPRZEDAZY']",
@@ -131,8 +199,8 @@ class stooq():
 
 
 def _check_file():
-    if os.path.exists("test.csv"):
-        df_price = pd.read_csv("test.csv")
+    if os.path.exists(csv_file):
+        df_price = pd.read_csv(csv_file)
         for key in df_price.keys():
             if 'Unnamed' in key:
                 df_price = df_price.drop(key, 1)
