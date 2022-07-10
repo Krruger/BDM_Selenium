@@ -14,6 +14,12 @@ import pandas as pd
 class BDM():
 
     def __init__(self, login, password):
+        """
+        Creates a BDM object, which is responsible for the representation of the Beskydy Brokerage's website (Beskidzki
+        dom maklerski)
+        :param login: login to your account
+        :param password: password to your account
+        """
         self._current_Page = 1
         self._driver = webdriver.Firefox()
         self._driver.get("https://www.bdm.pl/")
@@ -30,6 +36,9 @@ class BDM():
         file_To_Write.write(pageSource)
 
     def page_up(self):
+        """
+        Moves to the next page in Financial Instruments
+        """
         try:
             self._driver.find_element(By.XPATH,
                                       "//div[@class=' x-icon-btn x-nodrag epm-paging-toolbar-next epm-paging-toolbar-button x-component']").click()
@@ -39,6 +48,9 @@ class BDM():
         self._current_Page += 1
 
     def page_down(self):
+        """
+        Goes to previous page in Financial Instruments
+        """
         try:
             self._driver.find_element(By.XPATH,
                                       "//div[@class=' x-icon-btn x-nodrag epm-paging-toolbar-button x-component epm-paging-toolbar-prev']").click()
@@ -48,12 +60,21 @@ class BDM():
         self._current_Page -= 1
 
     def pulpit_1(self, ):
+        """
+        Moves to desktop 1
+        """
         self._driver.find_element(By.PARTIAL_LINK_TEXT, "Pulpit 1").click()
 
     def pulpit_2(self, ):
+        """
+        Moves to desktop 2
+        """
         self._driver.find_element(By.PARTIAL_LINK_TEXT, "Pulpit 2").click()
 
     def download_table_info(self):
+        """
+        Retrieves data located in the Financial Instruments element (shares, number of shares, purchase price, etc.).
+        """
 
         bdm_Dict = {'stock_names': "//div[@class='x-grid3-cell-inner x-grid3-col-SKROT']",
                     'number_to_shares': "//div[@class='x-grid3-cell-inner x-grid3-col-ILOSC_DO_SPRZEDAZY']",
@@ -87,7 +108,16 @@ class BDM():
                    df_price=pd.DataFrame({"Date": [],
                                           "Wycena": []}),
                    df=0):
+        """
+        Inserts an additional row in the table storing data about our positions that are currently in the portfolio
+        and their valuation.
 
+        :param df_price: New table already created to store data on portfolio positions and their valuation
+        :param df: Variable that holds information about current positions in the portfolio
+
+        :return: Returns a dataframe that contains current and past information about current positions and their
+        valuation in the portfolio
+        """
         # df_price = df_price.drop('ULTGAMES', 1)
         current_time = self._driver.find_element(By.XPATH, "//div[@id='epmNtw-quotesTime']").text.strip(
             "Czas notowań:")[0:10]
@@ -125,6 +155,13 @@ class BDM():
         self._df_price = df_price.drop('', 1)
 
     def zlecenie_kupna(self, nazwa_Tickera, cena_Akcji, kwota):
+        """
+        New order to buy shares
+        :param nazwa_Tickera: Stock name
+        :param cena_Akcji: Stock price
+        :param kwota: Purchase amount
+        :return:
+        """
         nowe_zlecenie = driver.find_element(By.XPATH, "//div[@class='epm-gadget-body x-component']")
         x, auto, value = nowe_zlecenie.get_attribute('id').split("-")
         value = int(value)
@@ -151,6 +188,13 @@ class BDM():
             pass
 
     def zlecenie_sprzedaży(self, nazwa_Tickera, cena_Akcji, liczba_akcji):
+        """
+
+        :param nazwa_Tickera: Stock name
+        :param cena_Akcji: Stock price
+        :param liczba_akcji: Number of shares
+        :return:
+        """
         nowe_zlecenie = driver.find_element(By.XPATH, "//div[@class='epm-gadget-body x-component']")
         x, auto, value = nowe_zlecenie.get_attribute('id').split("-")
         value = int(value)
@@ -176,6 +220,12 @@ class BDM():
             pass
 
     def anuluj_zlecenie(self,walor):
+        """
+        Cancels the issued order
+
+        :param walor: Stock name
+        :return:
+        """
         for x in self._driver.find_elements(By.XPATH,
                                       '//div[@class="x-tab-panel-body x-tab-panel-body-top epm-tabPanel-body"]'):
             if 'ID zlecenia' in x.text:
